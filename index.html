@@ -432,7 +432,7 @@
                     <li>Valorização profissional dos servidores</li>
                     <li>Progressão funcional baseada em mérito e qualificação</li>
                     <li>Isonomia salarial entre carreiras equivalentes</li>
-                    <li>Melhoria da qualidade de  vida dos trabalhadores</li>
+                    <li>Melhoria Qualidade de vida dos trabalhadores</li>
                 </ul>
             </div>
             
@@ -585,6 +585,55 @@
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSe76qB5DX5MoSPDoOPCy7zXPlgU6bpHLGEBReieXfjZ1_8OJQ/viewform?usp=header" target="_blank" rel="noopener noreferrer" class="btn-primary" style="text-decoration: none;">Preencher Formulário de Cadastro</a>
         </div>
 
+        <h2 class="section-title">Apoio dos Parlamentares</h2>
+        
+        <div class="cta-section" style="margin-bottom: var(--space-48);">
+            <h2>🏛️ É Deputado(a) Estadual?</h2>
+            <p style="margin-bottom: var(--space-24);">Declare seu apoio público ao PCCR SEAP-PA e fortaleça o movimento pela valorização dos servidores da administração penitenciária do Pará. Seu posicionamento é fundamental!</p>
+            
+            <div style="max-width: 600px; margin: 0 auto; text-align: left; background: var(--color-surface); padding: var(--space-24); border-radius: var(--radius-lg); border: 1px solid var(--color-card-border);">
+                <form id="formParlamentar" style="display: flex; flex-direction: column; gap: var(--space-16);">
+                    <div>
+                        <label for="nome" style="display: block; font-weight: var(--font-weight-medium); margin-bottom: var(--space-8); color: var(--color-text);">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required style="width: 100%; padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-base); font-size: var(--font-size-base); background: var(--color-background); color: var(--color-text);">
+                    </div>
+                    
+                    <div>
+                        <label for="partido" style="display: block; font-weight: var(--font-weight-medium); margin-bottom: var(--space-8); color: var(--color-text);">Partido *</label>
+                        <input type="text" id="partido" name="partido" required style="width: 100%; padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-base); font-size: var(--font-size-base); background: var(--color-background); color: var(--color-text);">
+                    </div>
+                    
+                    <div>
+                        <label for="email" style="display: block; font-weight: var(--font-weight-medium); margin-bottom: var(--space-8); color: var(--color-text);">E-mail Oficial *</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-base); font-size: var(--font-size-base); background: var(--color-background); color: var(--color-text);">
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; font-weight: var(--font-weight-medium); margin-bottom: var(--space-8); color: var(--color-text);">Declaro apoio à aprovação do PCCR SEAP-PA *</label>
+                        <label style="display: flex; align-items: center; gap: var(--space-8); cursor: pointer;">
+                            <input type="radio" name="apoio" value="sim" required style="cursor: pointer;">
+                            <span style="color: var(--color-text);">Sim, apoio a aprovação do PCCR</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: var(--space-8); cursor: pointer; margin-top: var(--space-8);">
+                            <input type="radio" name="apoio" value="analise" required style="cursor: pointer;">
+                            <span style="color: var(--color-text);">Preciso analisar melhor a proposta</span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label for="mensagem" style="display: block; font-weight: var(--font-weight-medium); margin-bottom: var(--space-8); color: var(--color-text);">Mensagem (opcional)</label>
+                        <textarea id="mensagem" name="mensagem" rows="3" style="width: 100%; padding: var(--space-12); border: 1px solid var(--color-border); border-radius: var(--radius-base); font-size: var(--font-size-base); font-family: var(--font-family-base); background: var(--color-background); color: var(--color-text); resize: vertical;"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Declaração de Apoio</button>
+                </form>
+            </div>
+            
+            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-16);">
+                Ao declarar apoio, você reconhece a importância da valorização dos servidores penitenciários e se compromete com a aprovação do PCCR na Assembleia Legislativa do Pará.
+            </p>
+        </div>
+
         <h2 class="section-title">Como Você Pode Ajudar</h2>
         
         <div class="cards-grid">
@@ -641,6 +690,26 @@
             document.body.removeChild(input);
             alert('Texto copiado! Cole nas suas redes sociais.');
         }
+
+        document.getElementById('formParlamentar').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                nome: document.getElementById('nome').value,
+                partido: document.getElementById('partido').value,
+                email: document.getElementById('email').value,
+                apoio: document.querySelector('input[name="apoio"]:checked').value,
+                mensagem: document.getElementById('mensagem').value
+            };
+            
+            // Aqui você pode adicionar integração com Google Sheets, email, ou banco de dados
+            console.log('Declaração de apoio recebida:', formData);
+            
+            alert('Obrigado, Deputado(a) ' + formData.nome + '!\n\nSua declaração de apoio ao PCCR SEAP-PA foi registrada com sucesso.\n\nA categoria agradece seu posicionamento pela valorização dos servidores penitenciários do Pará.');
+            
+            // Limpar formulário
+            this.reset();
+        });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
