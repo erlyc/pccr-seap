@@ -331,6 +331,50 @@
             color: var(--color-text-secondary);
         }
 
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: var(--space-8) var(--space-16);
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            text-decoration: none;
+            transition: background 0.2s ease;
+            margin-top: var(--space-12);
+        }
+
+        .download-link:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .video-section {
+            margin-bottom: var(--space-48);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+        }
+
         .footer {
             background: var(--color-surface);
             border-top: 1px solid var(--color-border);
@@ -388,7 +432,7 @@
                     <li>Valorização profissional dos servidores</li>
                     <li>Progressão funcional baseada em mérito e qualificação</li>
                     <li>Isonomia salarial entre carreiras equivalentes</li>
-                    <li>Melhoria da qualidade de vida dos trabalhadores</li>
+                    <li>Melhoria da qualidade devida dos trabalhadores</li>
                 </ul>
             </div>
             
@@ -400,6 +444,20 @@
                     <li>Estímulo à capacitação continuada</li>
                     <li>Fortalecimento do serviço público</li>
                 </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">Conheça o Movimento</h2>
+        
+        <div class="video-section">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/UJ8ciqOYB1I" 
+                    title="Vídeo do Movimento PCCR SEAP-PA"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
@@ -420,7 +478,7 @@
                 <h3>💼 Progressão Funcional</h3>
                 <p>Estabelecimento de critérios transparentes e objetivos para progressão, com base em desempenho, qualificação e tempo de serviço.</p>
             </div>
-            
+                        
         </div>
 
         <h2 class="section-title">Estatísticas do Sistema</h2>
@@ -485,6 +543,34 @@
             <h2>Junte-se ao Movimento!</h2>
             <p>A aprovação do PCCR é fundamental para a valorização dos servidores e para o fortalecimento do sistema penitenciário. Sua voz é importante!</p>
             <button class="btn-primary" onclick="compartilhar()">Compartilhar nas Redes Sociais</button>
+        </div>
+
+        <h2 class="section-title">Downloads e Documentos</h2>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <h3>📄 Cartilha do PCCR</h3>
+                <p>Documento completo explicando os direitos e benefícios do Plano de Cargos, Carreiras e Remuneração para os servidores da SEAP-PA.</p>
+                <a href="#" class="download-link" onclick="alert('Em breve: Cartilha PCCR SEAP-PA.pdf'); return false;">📥 Baixar PDF</a>
+            </div>
+            
+            <div class="card">
+                <h3>📊 Estudo Comparativo</h3>
+                <p>Análise comparativa de salários e benefícios entre a SEAP-PA e outras carreiras similares do sistema de segurança pública.</p>
+                <a href="#" class="download-link" onclick="alert('Em breve: Estudo Comparativo PCCR.pdf'); return false;">📥 Baixar PDF</a>
+            </div>
+            
+            <div class="card">
+                <h3>📋 Projeto de Lei</h3>
+                <p>Minuta do Projeto de Lei do PCCR SEAP-PA em tramitação na Assembleia Legislativa do Estado do Pará.</p>
+                <a href="#" class="download-link" onclick="alert('Em breve: Projeto de Lei PCCR.pdf'); return false;">📥 Baixar PDF</a>
+            </div>
+            
+            <div class="card">
+                <h3>📝 Cronograma de Aprovações</h3>
+                <p>Histórico de aprovação de PCCRs em outros órgãos do Pará nos últimos 4 anos e etapas de implantação.</p>
+                <a href="#" class="download-link" onclick="alert('Em breve: Cronograma PCCRs PA.pdf'); return false;">📥 Baixar PDF</a>
+            </div>
         </div>
 
         <h2 class="section-title">Como Você Pode Ajudar</h2>
