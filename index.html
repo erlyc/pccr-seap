@@ -8,11 +8,12 @@
     html {
       scroll-behavior: smooth;
     }
-
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
       background: #f8f8fa;
+      color: #333;
+      line-height: 1.6;
     }
     .navbar {
       background: #123c74;
@@ -50,6 +51,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      flex-wrap: wrap;
     }
     .navbar-links a {
       margin: 0 11px;
@@ -59,6 +61,7 @@
       transition: color 0.2s;
       padding: 6px 4px;
       border-bottom: 2px solid transparent;
+      white-space: nowrap;
     }
     .navbar-links a.active,
     .navbar-links a:hover {
@@ -71,17 +74,15 @@
         align-items: flex-start;
       }
       .navbar-links {
-        flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
       }
       .navbar-links a {
-        margin: 8px 0 0 0;
+        margin: 6px 10px 6px 0;
       }
     }
     section {
       max-width: 1200px;
-      margin: 80px auto 32px auto;
+      margin: 90px auto 32px auto;
       padding: 28px 22px;
       background: #fff;
       box-shadow: 0 4px 14px #e8e8ef33;
@@ -93,14 +94,120 @@
       margin: 0 0 18px 0;
       font-weight: 700;
     }
+    p {
+      margin-bottom: 14px;
+    }
+    /* Specific styles for some content elements */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #114c91;
+      color: white;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    .info-cards {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: #eef6fd;
+      border-radius: 12px;
+      padding: 18px 24px;
+      flex: 1 1 280px;
+      box-shadow: 0 0 10px rgba(100, 140, 190, 0.2);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #123c74;
+    }
+    .card p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    .timeline-item {
+      margin-bottom: 22px;
+    }
+    /* Video section */
+    .video-section {
+      text-align: center;
+      margin: 32px 0;
+    }
+    .video-section iframe {
+      width: 90%;
+      max-width: 600px;
+      height: 350px;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(50, 80, 130, 0.2);
+    }
+    /* Downloads */
+    .download-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+    .download-list li {
+      margin-bottom: 15px;
+    }
+    .download-list a {
+      color: #0056b3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .download-list a:hover {
+      text-decoration: underline;
+    }
+    /* Parlamentar support form */
+    form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #123c74;
+    }
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      font-family: inherit;
+      resize: vertical;
+    }
+    form button {
+      background-color: #123c74;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background-color: #0b2e52;
+    }
   </style>
   <script>
-    // Ativa destaque no menu conforme rola a página
+    // Active menu highlight on scroll
     window.addEventListener("DOMContentLoaded", function () {
       const links = document.querySelectorAll(".navbar-links a");
-      const sections = Array.from(links).map((link) =>
-        document.querySelector(link.getAttribute("href"))
-      );
+      const sections = Array.from(links).map((link) => document.querySelector(link.getAttribute("href")));
 
       function activateMenuOnScroll() {
         let idx = 0;
@@ -135,38 +242,96 @@
     </div>
   </nav>
 
-  <!-- Seções com ID que correspondem ao menu -->
-  <section id="inicio">
-    <h2>Início</h2>
-    <p>Bem-vindo ao portal do movimento pela aprovação do PCCR da SEAP-PA!</p>
+  <!-- Seções do site com IDs para navegação por âncoras -->
+
+  <section id="inicio" class="hero">
+    <h1>Aprova Já! PCCR SEAP-PA</h1>
+    <p>
+      Movimento dos servidores da Administração Penitenciária do estado do Pará pela aprovação do
+      Plano de Cargos, Carreira e Remuneração.
+    </p>
   </section>
+
   <section id="oque-pccr">
     <h2>O que é o PCCR</h2>
-    <p>Informações sobre o Plano de Cargos, Carreira e Remuneração...</p>
+    <div class="info-cards">
+      <div class="card">
+        <h3>O que é?</h3>
+        <p>Plano que organiza cargos, salários e progressões para os servidores.</p>
+      </div>
+      <div class="card">
+        <h3>Quem beneficia?</h3>
+        <p>Servidores efetivos da SEAP nas carreiras previstas na minuta.</p>
+      </div>
+      <div class="card">
+        <h3>Por que lutar?</h3>
+        <p>Melhora a valorização, motivação e condições de trabalho no sistema penitenciário.</p>
+      </div>
+    </div>
   </section>
+
+  <section id="video-movimento" class="video-section">
+    <h2>Conheça o Movimento</h2>
+    <iframe
+      src="https://www.youtube.com/embed/UJ8ciqOYB1I"
+      frameborder="0"
+      allowfullscreen
+      title="Vídeo: Movimento PCCR SEAP-PA"
+    ></iframe>
+  </section>
+
   <section id="linha-tempo">
     <h2>Linha do Tempo</h2>
-    <p>Principais marcos, reuniões e avanços do movimento...</p>
+    <div class="timeline-item">
+      <strong>Fev 2025:</strong> Início da mobilização dos servidores.
+    </div>
+    <div class="timeline-item">
+      <strong>Mar 2025:</strong> Primeiras reuniões com gestores e parlamentares.
+    </div>
+    <div class="timeline-item">
+      <strong>Abr 2025:</strong> Proposta preliminar apresentada à Assembleia Legislativa.
+    </div>
+    <div class="timeline-item">
+      <strong>Jul 2025:</strong> Audiências públicas e debates intensificados.
+    </div>
+    <div class="timeline-item">
+      <strong>Out 2025:</strong> Aprovação da minuta pelo governo.
+    </div>
   </section>
+
   <section id="resultados">
     <h2>Nossos Resultados</h2>
-    <p>Conquistas obtidas, impacto na carreira dos servidores...</p>
+    <p>Conquistas e avanços na tramitação do PCCR.</p>
   </section>
+
   <section id="materiais-download">
     <h2>Materiais para Download</h2>
-    <p>Cartilhas, projetos, minuta, PDF, estudos comparativos...</p>
+    <ul class="download-list">
+      <li><a href="#" onclick="alert('Documento ainda não disponível')">Cartilha Explicativa do PCCR</a></li>
+      <li><a href="#" onclick="alert('Documento ainda não disponível')">Estudo Comparativo</a></li>
+      <li><a href="#" onclick="alert('Documento ainda não disponível')">Projeto de Lei</a></li>
+      <li><a href="#" onclick="alert('Documento ainda não disponível')">Cronograma de Aprovações</a></li>
+    </ul>
   </section>
+
   <section id="noticias">
     <h2>Notícias</h2>
-    <p>Atualizações e matérias sobre a tramitação do PCCR...</p>
+    <p>
+      Acompanhe as atualizações da tramitação, mobilizações e decisões da Assembleia Legislativa
+      e órgãos envolvidos.
+    </p>
   </section>
+
   <section id="fale-conosco">
     <h2>Fale Conosco</h2>
-    <p>Formulários de contato, WhatsApp, email e canais de comunicação...</p>
+    <p>Formulários, contatos para dúvidas, sugestões e participação.</p>
   </section>
+
   <section id="apoie-causa">
     <h2>Apoie a Causa</h2>
-    <p>Como declarar apoio, assinar petições e mobilizar colegas...</p>
+    <p>
+      Instruções para assinatura de petições, campanhas e como engajar seus colegas servidores.
+    </p>
   </section>
 </body>
 </html>
